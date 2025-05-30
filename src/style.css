@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --color-portfolio-purple-500: #9e77ed;
+  --color-portfolio-purple-600: #7f56d9;
+  --color-portfolio-purple-40: rgba(127, 86, 217, 0.4);
+}
