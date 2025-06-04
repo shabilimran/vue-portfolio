@@ -3,7 +3,7 @@
 </script>
 <template>
   <div class="flex flex-col w-full p-10 gap-y-10">
-    <div class="flex flex-row py-20 items-center gap-x-2">
+    <div class="flex md:flex-row flex-col md:py-20 items-center md:gap-x-2 gap-y-4">
       <h1 class="home-title">FULLSTACK DEVELOPER</h1>
       <div class="w-px bg-gradient-to-t from-accent to-hover self-stretch"></div>
       <p class="text-xl text-text-primary dark:text-gray-300 max-w-xl px-10">
@@ -13,23 +13,13 @@
         beautiful, reliable, responsive and ready to scale applications.
       </p>
     </div>
-    <!-- <div class="flex flex-col justify-center items-center text-center px-6 gap-y-5">
-      <p class="text-text-secondary text-lg">My stacks</p>
-      <div class="flex gap-4 flex-wrap justify-center">
-        <TechBadge name="Vue 3" description="cincau" />
-        <TechBadge name="Next.js 14" description="cincau" />
-        <TechBadge name="Tailwind CSS" description="cincau" />
-        <TechBadge name="Vercel" description="cincau" />
-        <TechBadge name="Serverless Framework" description="cincau" />
-        <TechBadge name="AWS Lambda" description="cincau" />
-        <TechBadge name="DynamoDB" description="cincau" />
-      </div>
-    </div> -->
 
-    <div class="flex flex-row items-center justify-end ml-auto px-10 gap-x-10">
+    <div
+      class="flex md:flex-row flex-col items-center justify-end ml-auto px-10 md:gap-x-10 gap-y-10"
+    >
       <div>
         <p class="home-instruction">
-          Learn more about my journey, projects, and the tech I love by clicking here
+          Learn more about my journey, projects, and the tech I love by clicking this button
         </p>
         <p class="home-instruction">— or browse the tabs above.</p>
       </div>
@@ -39,10 +29,20 @@
     </div>
   </div>
 </template>
-<style scoped>
+<style scoped lang="postcss">
   @import '../style.css' reference;
   .home-title {
-    @apply flex justify-center items-center text-center w-1/2 text-6xl font-bold bg-gradient-to-r from-accent to-hover bg-clip-text text-transparent;
+    @apply flex justify-center items-center text-center md:w-1/2 md:text-6xl text-5xl font-bold text-transparent bg-clip-text;
+
+    background-image: linear-gradient(
+      90deg,
+      #ec4899,
+      #6366f1,
+      #ec4899
+    ); /* pink -> indigo -> pink */
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    animation: gradient-snipe 3s ease-in-out infinite;
   }
 
   .home-instruction {
@@ -62,7 +62,7 @@
   }
 
   .fancy-button__container:hover {
-    animation: gradient-snipe 1500ms ease-in-out forwards;
+    animation: gradient-snipe 1500ms ease-in-out infinite;
     box-shadow: 0 0 12px 4px rgba(99, 102, 241, 0.4);
   }
 
@@ -70,8 +70,11 @@
     0% {
       background-position: 0% 50%;
     }
-    100% {
+    50% {
       background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 </style>

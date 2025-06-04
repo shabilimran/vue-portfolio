@@ -2,6 +2,7 @@ import { createWebHistory } from 'vue-router'
 import { createRouter } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
+import Contact from '../views/Contact.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -26,20 +27,20 @@ const router = createRouter({
       name: 'About',
     },
     {
-      path: '/experience',
-      component: About,
-      name: 'About',
+      path: '/contact',
+      component: Contact,
+      name: 'Contact',
     },
-    {
-      path: '/project',
-      component: About,
-      name: 'About',
-    },
-    {
-      path: '/stack',
-      component: About,
-      name: 'About',
-    },
+    // {
+    //   path: '/project',
+    //   component: About,
+    //   name: 'About',
+    // },
+    // {
+    //   path: '/stack',
+    //   component: About,
+    //   name: 'About',
+    // },
   ],
   linkActiveClass: 'active-link',
   linkExactActiveClass: 'exact-active-link',

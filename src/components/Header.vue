@@ -1,16 +1,13 @@
 <script setup lang="ts">
   import { ref } from 'vue'
-  import { useRoute } from 'vue-router'
+  import { useRoute, useRouter } from 'vue-router'
 
   const menuOpen = ref(false)
   const route = useRoute()
+  const router = useRouter()
   const tabs: { name: string; path: string }[] = [
     {
-      name: 'About Me',
-      path: '/about',
-    },
-    {
-      name: 'Experience',
+      name: 'Experiences',
       path: '/experience',
     },
     {
@@ -22,6 +19,10 @@
       path: '/stack',
     },
     {
+      name: 'About Me',
+      path: '/about',
+    },
+    {
       name: 'Contact',
       path: '/contact',
     },
@@ -30,19 +31,24 @@
   function activeTab(tab: string): boolean {
     return tab === route.path
   }
+
+  function goTo(path: string) {
+    router.push(path)
+  }
 </script>
 <template>
   <div class="header-container">
     <div
       class="md:flex flex-row w-full h-full border-2 border-border rounded-2xl overflow-hidden hidden"
     >
-      <div class="header-logo">SHABIL IMRAN</div>
+      <div class="header-logo" @click="goTo('/home')">SHABIL IMRAN</div>
       <div class="header-tabs">
         <div
           v-for="(tab, i) in tabs"
           :key="i"
           class="tabs"
-          :class="{ 'text-hover': activeTab(tab.path) }"
+          :class="[activeTab(tab.path) ? 'text-hover' : 'text-text-primary']"
+          @click="goTo(tab.path)"
         >
           <p>{{ tab.name }}</p>
         </div>
@@ -64,7 +70,7 @@
             />
           </svg>
         </button>
-        <div class="header-logo text-xl font-bold">SHABIL IMRAN</div>
+        <div class="header-logo text-xl font-bold" @click="goTo('/home')">SHABIL IMRAN</div>
       </div>
 
       <div
@@ -79,6 +85,7 @@
             :key="i"
             class="tabs text-gray-800"
             :class="{ 'text-blue-600 font-semibold': activeTab(tab.path) }"
+            @click="goTo(tab.path)"
           >
             <p>{{ tab.name }}</p>
           </div>
@@ -93,13 +100,13 @@
     @apply w-full h-28 p-5;
   }
   .header-logo {
-    @apply flex items-center h-full md:w-1/3 w-full md:justify-start justify-center text-text-primary text-xl px-10;
+    @apply flex items-center h-full md:w-1/3 w-full md:justify-start justify-center text-text-primary text-xl px-10 cursor-pointer;
   }
   .header-tabs {
     @apply h-full w-2/3 justify-evenly flex flex-row cursor-pointer;
   }
   .tabs {
-    @apply flex flex-row items-center justify-center h-full w-full text-text-primary transition;
+    @apply flex flex-row items-center justify-center h-full w-full  transition;
   }
   .tabs:hover {
     @apply text-hover;
