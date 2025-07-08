@@ -3,6 +3,7 @@ import { createRouter } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
+import Experience from '../views/Experience.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -31,11 +32,11 @@ const router = createRouter({
       component: Contact,
       name: 'Contact',
     },
-    // {
-    //   path: '/project',
-    //   component: About,
-    //   name: 'About',
-    // },
+    {
+      path: '/experience',
+      component: Experience,
+      name: 'Experience',
+    },
     // {
     //   path: '/stack',
     //   component: About,

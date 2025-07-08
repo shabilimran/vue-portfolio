@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <div class="w-screen h-screen overflow-auto bg-background">
+  <div class="flex flex-col w-screen h-screen overflow-auto bg-background">
     <TopHeader></TopHeader>
     <router-view />
   </div>

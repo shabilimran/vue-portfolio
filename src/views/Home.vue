@@ -2,7 +2,7 @@
   import TechBadge from '../components/TechBadge.vue'
 </script>
 <template>
-  <div class="flex flex-col w-full p-10 gap-y-10">
+  <div class="flex flex-col grow w-full p-10 gap-y-10 pb-40">
     <div class="flex md:flex-row flex-col md:py-20 items-center md:gap-x-2 gap-y-4">
       <h1 class="home-title">FULLSTACK DEVELOPER</h1>
       <div class="w-px bg-gradient-to-t from-accent to-hover self-stretch"></div>
@@ -15,7 +15,7 @@
     </div>
 
     <div
-      class="flex md:flex-row flex-col items-center justify-end ml-auto px-10 md:gap-x-10 gap-y-10"
+      class="flex md:flex-row flex-col items-center justify-end ml-auto px-10 md:gap-x-10 gap-y-10 mt-auto"
     >
       <div>
         <p class="home-instruction">
