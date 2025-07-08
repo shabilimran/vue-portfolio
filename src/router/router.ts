@@ -9,12 +9,8 @@ const router = createRouter({
   history: createWebHistory(),
 
   routes: [
-    // {
-    //   path: '/:pathMatch(.*)*',
-    //   redirect: '/home',
-    // },
     {
-      path: '/',
+      path: '/:pathMatch(.*)*',
       redirect: '/home',
     },
     {

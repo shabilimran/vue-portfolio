@@ -13,19 +13,22 @@
     </div>
 
     <!-- Hover Popup -->
+
     <transition name="fade-scale">
-      <div
-        v-if="showPopup"
-        class="absolute z-50 top-full mt-3 left-1/2 -translate-x-1/2 w-[22rem] bg-white border border-gray-200 rounded-xl shadow-2xl p-5 max-h-64 overflow-y-auto hover:overflow-y-auto"
-        @mouseenter="cancelClose"
-        @mouseleave="scheduleClose"
+      <Teleport to="body"
+        ><div
+          v-if="showPopup"
+          class="z-50 fixed inset-0 m-auto w-1/2 bg-white border border-gray-200 rounded-xl shadow-2xl p-5 max-h-64 overflow-y-auto hover:overflow-y-auto"
+          @mouseenter="cancelClose"
+          @mouseleave="scheduleClose"
+        >
+          <h4 class="text-lg font-semibold text-gray-800 mb-2">{{ title }} @ {{ company }}</h4>
+          <p class="text-xs text-gray-500 mb-2">{{ duration }}</p>
+          <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">
+            {{ description }}
+          </p>
+        </div></Teleport
       >
-        <h4 class="text-lg font-semibold text-gray-800 mb-2">{{ title }} @ {{ company }}</h4>
-        <p class="text-xs text-gray-500 mb-2">{{ duration }}</p>
-        <p class="text-sm text-gray-700 whitespace-pre-line leading-relaxed">
-          {{ description }}
-        </p>
-      </div>
     </transition>
   </div>
 </template>
